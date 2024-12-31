@@ -6,7 +6,7 @@
 
     &::before {
         content: "";
-        @apply absolute -z-[1] top-0 bottom-0 left-0 right-0 origin-[0_50%] duration-300 ease-initial;
+        @apply absolute -z-[1] top-0 bottom-0 left-0 right-0 origin-[0_50%] duration-300 ease-in-out;
         transform: scaleX(0);
         transition-property: transform;
     }
@@ -43,6 +43,6 @@
 
 /* Button Style End */
 
-@utility container {
+.container {
     @apply mx-auto max-w-full sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px];
 }
