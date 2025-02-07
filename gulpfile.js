@@ -8,6 +8,7 @@ var cleanCss = require('gulp-clean-css');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer')
 var tailwindcss = require('tailwindcss');
+var replace = require('gulp-replace');
 
 // Create a task to delete dist folder
 gulp.task('clean', () => {
@@ -40,8 +41,24 @@ gulp.task('pages', () => {
         .pipe(gulp.dest('dist'));
 });
 
+// Create a task for Copy All Assets Files
+gulp.task('assets', () => {
+    return gulp.src('./public/**', {encoding: false})
+        .pipe(gulp.dest('dist/public'));
+});
+
+// Create a task to build Replace File URLs
+gulp.task('fileUrlChange', () => {
+    return gulp.src('./src/app/**/**.html')
+        .pipe(replace('/dist/style.css', '/style.css'))
+        .pipe(replace('/dist/script.js', '/script.js'))
+        .pipe(gulp.dest('dist'));
+});
+
 // Create a task to build TypeScript to JavaScript
-gulp.task('build', gulp.parallel('typescript', 'sass', 'pages'));
+gulp.task('build', gulp.series('clean',
+    gulp.parallel('typescript', 'sass', 'pages', 'assets', 'fileUrlChange')
+));
 
 // Create a watch task to watch for changes to Sass and TypeScript files
 gulp.task('watch', gulp.parallel('build', () => {
