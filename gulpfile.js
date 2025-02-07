@@ -37,7 +37,7 @@ gulp.task('typescript', () => {
 
 // Create a task for Copy All HTML Files
 gulp.task('pages', () => {
-    return gulp.src(['./src/app/**/index.html'])
+    return gulp.src(['./src/app/**/*.html'])
         .pipe(gulp.dest('dist'));
 });
 
@@ -57,7 +57,8 @@ gulp.task('fileUrlChange', () => {
 
 // Create a task to build TypeScript to JavaScript
 gulp.task('build', gulp.series('clean',
-    gulp.parallel('typescript', 'sass', 'pages', 'assets', 'fileUrlChange')
+    gulp.parallel('typescript', 'sass', 'pages', 'assets'),
+    'fileUrlChange'
 ));
 
 // Create a watch task to watch for changes to Sass and TypeScript files
