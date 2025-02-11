@@ -38,5 +38,16 @@ export default {
         xxl: '40px',
       }
     },
+  },
+  corePlugins: {
+    filter: false,
+
+    // Define Opacity 
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    placeholderOpacity: false,
+    ringOpacity: false,
   }
 }
