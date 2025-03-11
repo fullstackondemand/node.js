@@ -63,6 +63,7 @@ gulp.task('build', gulp.series('clean',
 
 // Create a watch task to watch for changes to Sass and TypeScript files
 gulp.task('watch', gulp.parallel('build', () => {
+    gulp.watch('./src/**/*.html', gulp.series('sass', 'typescript'));
     gulp.watch('./src/**/*.scss', gulp.series('sass'));
     gulp.watch('./src/**/*.ts', gulp.series('typescript'));
 }));
