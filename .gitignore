@@ -11,7 +11,7 @@
 npm-debug.log
 yarn-error.log
 package-lock.json
-
+bun.lock
 
 # IDEs and editors
 .idea/

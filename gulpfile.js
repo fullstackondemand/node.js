@@ -4,10 +4,8 @@ var typescript = require('gulp-typescript');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify');
-var cleanCss = require('gulp-clean-css');
 var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer')
-var tailwindcss = require('tailwindcss');
+var tailwindcss = require("@tailwindcss/postcss");
 var replace = require('gulp-replace');
 
 // Create a task to delete dist folder
@@ -20,9 +18,8 @@ gulp.task('clean', () => {
 gulp.task('sass', () => {
     return gulp.src('./src/**/*.scss')
         .pipe(concat('style.scss'))
-        .pipe(sass())
-        .pipe(postcss([tailwindcss('./tailwind.config.js'), autoprefixer]))
-        .pipe(cleanCss())
+        .pipe(postcss([tailwindcss]))
+        .pipe(sass({ style: 'compressed' }))
         .pipe(gulp.dest('./dist'));
 });
 
@@ -43,7 +40,7 @@ gulp.task('pages', () => {
 
 // Create a task for Copy All Assets Files
 gulp.task('assets', () => {
-    return gulp.src('./public/**', {encoding: false})
+    return gulp.src('./public/**', { encoding: false })
         .pipe(gulp.dest('dist/public'));
 });
 

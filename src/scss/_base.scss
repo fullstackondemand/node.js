@@ -1,40 +1,41 @@
 @layer base {
+
   *,
   ::after,
   ::before {
-    box-sizing: border-box;
-    @apply m-0 p-0;
+      box-sizing: border-box;
+      @apply m-0 p-0;
   }
 
   html {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-text-size-adjust: 100%;
-    interpolate-size: allow-keywords;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      interpolate-size: allow-keywords;
   }
 
   img,
   svg {
-    @apply max-w-full h-auto align-middle border-0;
-    @apply object-cover;
+      @apply max-w-full h-auto align-middle border-0;
+      @apply object-cover;
   }
 
   a {
-    border-width: 0;
-    border-style: solid;
-    border-color: transparent;
+      border-width: 0;
+      border-style: solid;
+      border-color: transparent;
   }
 
   input,
   button,
   select,
   textarea {
-    @apply focus:outline-none;
+      @apply focus:outline-none;
 
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
   }
 
   h1,
@@ -49,64 +50,64 @@
   .h5,
   h6,
   .h6 {
-    @apply leading-[1.2] capitalize font-alt;
+      @apply leading-[1.2] capitalize font-alt;
   }
 
   h1,
   .h1 {
-    @apply text-[39px] font-semibold lg:text-[47px];
+      @apply text-[39px] font-semibold lg:text-[47px];
   }
 
   h2,
   .h2 {
-    @apply text-[32px] font-medium lg:text-[40px];
+      @apply text-[32px] font-medium lg:text-[40px];
   }
 
   h3,
   .h3 {
-    @apply text-[27px] font-normal lg:text-[33px];
+      @apply text-[27px] font-normal lg:text-[33px];
   }
 
   h4,
   .h4 {
-    @apply text-[22px] font-medium lg:text-[28px];
+      @apply text-[22px] font-medium lg:text-[28px];
   }
 
   h5,
   .h5 {
-    @apply text-[19px] font-bold lg:text-[23px];
+      @apply text-[19px] font-bold lg:text-[23px];
   }
 
   h6,
   .h6 {
-    @apply text-[16px] font-bold lg:text-[19px];
+      @apply text-[16px] font-bold lg:text-[19px];
   }
 
   p,
   .p,
   main,
   body {
-    @apply font-default font-normal lg:text-[16px] lg:leading-[30px];
+      @apply font-default font-normal lg:text-[16px] lg:leading-[30px];
   }
 
   a {
-    @apply text-secondary no-underline hover:underline inline-block;
+      @apply text-secondary no-underline hover:underline inline-block;
   }
 
   main ul {
-    @apply pl-sm;
+      @apply pl-sm;
 
-    li {
-      @apply list-none relative pl-lg;
+      li {
+          @apply list-none relative pl-lg;
 
-      &:after {
-        content: "";
-        @apply bg-secondary h-[10px] rounded-full w-[10px] absolute top-[10px] left-0;
+          &:after {
+              content: '';
+              @apply bg-secondary h-[10px] rounded-full w-[10px] absolute top-[10px] left-0;
+          }
       }
-    }
   }
 
   hr {
-    @apply border-none bg-accent w-[100px] h-[3px] lg:w-[150px] lg:h-[4px] rounded-[8px] mt-md mb-lg;
+      @apply border-none bg-accent w-[100px] h-[3px] lg:w-[150px] lg:h-[4px] rounded-[8px] mt-md mb-lg;
   }
 }
